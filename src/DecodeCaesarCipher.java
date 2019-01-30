@@ -1,7 +1,7 @@
 public class DecodeCaesarCipher {
     public static void main(String[] args) {
 
-        String cipherText = "H svun aptl hnv pu h nhshef mhy, mhy hdhf....";
+        String cipherText = "V nz bar jvgu gur sbepr naq gur sbepr vf jvgu zr";
         System.out.println(mostCommonLetter(cipherText));
 
         char[] mostPresent = {'e', 't', 'h'};
