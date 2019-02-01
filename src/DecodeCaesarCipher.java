@@ -1,22 +1,56 @@
+import java.util.Scanner;
+
 public class DecodeCaesarCipher {
     public static void main(String[] args) {
-
-        String cipherText = "V nz bar jvgu gur sbepr naq gur sbepr vf jvgu zr";
-        System.out.println(mostCommonLetter(cipherText));
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the encoded message : ");      // V nz bar jvgu gur sbepr naq gur sbepr vf jvgu zr
+        String cipherText = input.nextLine();
+        System.out.println("Decoding...         ");
 
         char[] mostPresent = {'e', 't', 'h'};
+        char[] alphabet = {'a', 'b', 'c', 'd', 'f', 'g', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p'     // - e,t,h
+                , 'q', 'r', 's', 'u', 'v', 'w', 'x', 'y', 'z'};
         int difference = 0;
-        cipherText = cipherText.toLowerCase();
 
+        cipherText = cipherText.toLowerCase();
         System.out.println(" ----------------------------- ");
         System.out.println("Most common letter in the text is : " + mostCommonLetter(cipherText));
         System.out.println(" ----------------------------- ");
         for (int i = 0; i < mostPresent.length; i++) {
             difference = (-1) * ((int) ((char) (mostCommonLetter(cipherText))) - (int) mostPresent[i]);
             System.out.println(shiftLetters(cipherText, difference));
-            //System.out.print(difference);
         }
 
+        System.out.println();
+        System.out.print("Do you to continue Y/N: ");
+        String answer = input.nextLine();
+        System.out.println();
+
+        switch (answer) {
+            case "Y":
+            case "y":
+                System.out.println(" ----------------------------- ");
+                System.out.println("The other 23 versions of the text ");
+                System.out.println(" ----------------------------- ");
+                for (int i = 0; i < alphabet.length; i++) {
+                    difference = (-1) * ((int) ((char) (mostCommonLetter(cipherText))) - (int) alphabet[i]);
+                    System.out.print(i + 1 + ". ");
+                    System.out.println(shiftLetters(cipherText, difference));
+
+                }
+                break;
+            case "N":
+            case "n":
+                System.out.println("Have a nice day !");
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Invalid choice !");
+                break;
+        }
+        System.out.println();
+        System.out.println("My brain is only a receiver, in the Universe there is a core from which we obtain " +
+                "knowledge, strength and inspiration.");
     }
 
     public static String shiftLetters(String text, int diff) {
@@ -61,7 +95,6 @@ public class DecodeCaesarCipher {
         for (int k = 0; k < arrayOne.length; k++) {
             if (maxOccurring == arrayOne[k]) {
                 result = (char) k;
-                // System.out.print(result + " ");
             }
         }
         return result;
