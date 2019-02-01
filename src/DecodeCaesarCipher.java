@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class DecodeCaesarCipher {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter the encoded message : ");      // V nz bar jvgu gur sbepr naq gur sbepr vf jvgu zr
+        System.out.println("Enter the encoded message : ");
         String cipherText = input.nextLine();
-        System.out.println("Decoding...         ");
+        System.out.println("Decoding... ");
 
         char[] mostPresent = {'e', 't', 'h'};
         char[] alphabet = {'a', 'b', 'c', 'd', 'f', 'g', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p'     // - e,t,h
